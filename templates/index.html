@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Substance Quantity Prediction</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Substance Quantity Prediction for Drilling</h1>
+        
+        <form method="post" action="/predict">
+            <div class="mb-3">
+                <label class="form-label" for="hole_length">Hole Length (ft):</label>
+                <input class="form-control" type="text" name="hole_length" required>
+                
+                <label class="form-label" for="hole_size">Hole Size (inches):</label>
+                <input class="form-control" type="text" name="hole_size" required>
+    
+                <label class="form-label" for="washout_factor">Washout Factor:</label>
+                <input class="form-control" type="text" name="washout_factor" required>
+    
+                <label class="form-label" for="solid_waste_volume">Solid Waste Volume (bbls):</label>
+                <input class="form-control" type="text" name="solid_waste_volume" required>
+    
+            </div>
+            <button class="btn btn-outline-success" type="submit">Predict</button>
+        </form>
+       
+
+        {% if prediction %}
+            <p class="mt-5">Estimated Quantity: {{ prediction }} units</p>
+        {% endif %}
+    </div>
+</body>
+</html>
